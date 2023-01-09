@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course page</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/bootstrap.min.css' %}" type="text/javascript"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>List of all course</h1>
+        <hr>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Course ID</th>
+                    <th>Course Name</th>
+                    <th>Credit</th>
+                    <th>Tutorial Full marks</th>
+                    <th>Mid Full marks</th>
+                    <th>Attandence Full marks</th>
+                    <th>Final Full marks</th>
+                    <th>ACTIONS</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in courses %}
+                <tr>
+                    <td>{{course.course_id}}</td>
+                    <td>{{course.course_name}}</td>
+                    <td>{{course.course_credit}}</td>
+                    <td>{{course.ct_full_marks}}</td>
+                    <td>{{course.mid_full_marks}}</td>
+                    <td>{{course.att_full_marks}}</td>
+                    <td>{{course.final_full_marks}}</td>
+                    <td><button class="btn btn-danger"><a class="text-light" href="{% url 'delete' course.id %}">Delete</a></button> <button class="btn btn-info"><a class="text-light" href="#">Edit</a></button></td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>

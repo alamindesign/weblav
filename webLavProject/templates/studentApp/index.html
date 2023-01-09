@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+    <link rel="stylesheet" href="{% static 'studentApp/css/bootstrap.min.css' %}">
+    <script src="{% static 'studentApp/css/bootstrap.min.js' %}"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>List of all course</h1>
+        <hr>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>District</th>
+                    <th>Cell No</th>
+                    <th>Email</th>
+                    <th>Date of birth</th>
+                    <th>Program Name</th>
+                    <th>ACTIONS</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in Students %}
+                <tr>
+                    <td>{{course.student_id}}</td>
+                    <td>{{course.student_name}}</td>
+                    <td>{{course.district}}</td>
+                    <td>{{course.cell_no}}</td>
+                    <td>{{course.email}}</td>
+                    <td>{{course.doB}}</td>
+                    <td>{{course.program_name}}</td>
+                    <td><button class="btn btn-danger"><a class="text-light" href="{% url 'remove' course.id %}">Delete</a></button> <button class="btn btn-info"><a class="text-light" href="#">Edit</a></button></td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
