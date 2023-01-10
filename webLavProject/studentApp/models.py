@@ -13,6 +13,7 @@ class Students(models.Model):
         return self.student_id
 class Program(models.Model):
     program_name = models.CharField(max_length=30)
+    program_duretion = models.CharField(max_length= 15, default='6 month')
 
     def __str__(self):
         return self.program_name
