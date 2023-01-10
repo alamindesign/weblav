@@ -23,5 +23,5 @@ def save(request):
     return redirect(home)
 def edit(request,id):
     edt = Course.objects.get(id = id)
-    editform = CourseForm(edt)
+    editform = CourseForm(instance=edt)
     return render(request,'courseApp/edit.html',{'editform':editform})
