@@ -2,8 +2,6 @@ from django.shortcuts import render, redirect
 from .models import Course
 from .forms import CourseForm
 # Create your views here.
-# def edit(request):
-#     return render()
 def home(request):
     all_courses = Course.objects.all()
     return render(request,'courseApp\index.html',{'courses': all_courses});
@@ -18,6 +16,12 @@ def save(request):
     if request.method=="POST":
         form = CourseForm(request.POST)
         if form.is_valid():
-            form.save()
+            try:
+                form.save()
+            except:
+                pass
     return redirect(home)
-
+def edit(request,id):
+    edt = Course.objects.get(id = id)
+    editform = CourseForm(edt)
+    return render(request,'courseApp/edit.html',{'editform':editform})

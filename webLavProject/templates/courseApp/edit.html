@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Course</title>
+    <link rel="stylesheet" href="{% static 'courseApp/css/bootstrap.min.css' %}">
+</head>
+<body>
+<div class="container">
+    <h1>Edit Course:</h1><hr>
+    <form action="#" method="POST">
+        {% csrf_token %}
+    <table class="table ">
+        <tr>
+            <td>Course ID</td>
+            <td>{{ editform.course_id }}</td>
+        </tr>
+        <tr>
+            <td>Course Name</td>
+            <td>{{ editform.course_name }}</td>
+        </tr>
+        <tr>
+            <td>Credit</td>
+            <td>{{ editform.course_credit }}</td>
+        </tr>
+        <tr>
+            <td>CT Full Marks</td>
+            <td>{{ editform.ct_full_marks }}</td>
+        </tr>
+        <tr>
+            <td>Mid Full Marks</td>
+            <td>{{ editform.mid_full_marks }}</td>
+        </tr>
+        <tr>
+            <td>Att Full Marks</td>
+            <td>{{ editform.att_full_marks }}</td>
+        </tr>
+        <tr>
+            <td>Final Full Marks</td>
+            <td>{{ editform.final_full_marks }}</td>
+        </tr>
+        <tr>
+            <td>
+                <input class="btn btn-primary" type="submit" value="Update">
+            </td>
+            <td>
+                <input class="btn btn-primary" type="submit" value="Cancel">
+            </td>
+        </tr>
+    </table>
+    </form>
+</div>
+</body>
+</html>

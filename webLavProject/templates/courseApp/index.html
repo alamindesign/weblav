@@ -36,7 +36,7 @@
                     <td>{{course.mid_full_marks}}</td>
                     <td>{{course.att_full_marks}}</td>
                     <td>{{course.final_full_marks}}</td>
-                    <td><button class="btn btn-danger"><a class="text-light" href="{% url 'delete' course.id %}">Delete</a></button> <button class="btn btn-info"><a class="text-light" href="#">Edit</a></button></td>
+                    <td><button class="btn btn-danger"><a class="text-light" href="{% url 'delete' course.id %}">Delete</a></button> <button class="btn btn-info"><a class="text-light" href="{% url 'edit' course.id %}">Edit</a></button></td>
                 </tr>
                 {%endfor%}
             </tbody>

@@ -24,7 +24,8 @@
 </div> -->
 <div class="container">
     <h1>Add New Course:</h1><hr>
-    <form action="{% url 'save' %}">
+    <form action="{% url 'save' %}" method="POST">
+        {% csrf_token %}
     <table class="table ">
         <tr>
             <td>Course ID</td>
@@ -37,6 +38,10 @@
         <tr>
             <td>Credit</td>
             <td>{{ cfrom.course_credit }}</td>
+        </tr>
+        <tr>
+            <td>CT Full Marks</td>
+            <td>{{ cfrom.ct_full_marks }}</td>
         </tr>
         <tr>
             <td>Mid Full Marks</td>
