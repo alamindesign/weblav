@@ -25,3 +25,10 @@ def edit(request,id):
     edt = Course.objects.get(id = id)
     editform = CourseForm(instance=edt)
     return render(request,'courseApp/edit.html',{'editform':editform})
+def update(request,id):
+    course = Course.objects.get(id = id)
+    udtform = Course(request.POST, instance= Course)
+    if udtform.is_valid():
+        udtform.save()
+        return redirect(home)
+    return redirect(home)

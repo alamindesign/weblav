@@ -11,7 +11,7 @@
 <body>
 <div class="container">
     <h1>Edit Course:</h1><hr>
-    <form action="#" method="POST">
+    <form action="{% url 'update' editform.id %}" method="POST">
         {% csrf_token %}
     <table class="table ">
         <tr>
