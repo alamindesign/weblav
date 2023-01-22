@@ -9,24 +9,11 @@
     <link rel="stylesheet" href="{% static 'courseApp/css/bootstrap.min.css' %}">
 </head>
 <body>
-    <!-- <div class="container">
-        <h1>Add New Course:</h1><hr>
-    <form action="#" class="">
-        {% csrf_token %}
-        <p class="form-label">Course ID: {{ cfrom.course_id }}</p>
-        <p class="form-label">Course Name: {{ cfrom.course_name }}</p>
-        <p class="form-label">Credit: {{ cfrom.course_credit }}</p>
-        <p class="form-label">Mid Full Marks: {{ cfrom.mid_full_marks }}</p>
-        <p class="form-label">Att Full Marks: {{ cfrom.att_full_marks }}</p>
-        <p class="form-label">Final Full Marks: {{ cfrom.final_full_marks }}</p>
-        <input class="btn btn-primary" type="submit" value="save">
-    </form>
-</div> -->
 <div class="container">
     <h1>Add New Course:</h1><hr>
     <form action="{% url 'save' %}" method="POST">
         {% csrf_token %}
-    <table class="table ">
+    <table class="table table-bordered">
         <tr>
             <td>Course ID</td>
             <td>{{ cfrom.course_id }}</td>
